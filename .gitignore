@@ -1,0 +1,11 @@
+/.venv
+/__pycache__
+/activities
+.env
+activities.csv
+tokens.json
+test.py
+fit_to_json.py
+convert_to_json.py
+power.py
+config.yaml
