@@ -117,7 +117,9 @@ async def power_cmd(ctx, mode: str, *args):
             return
 
         # Step 1: collect activities for the date
+        print(target_date)
         activities = get_activities_for_date(DATA_DIR, target_date)
+        print(activities)
 
         if not activities:
             await ctx.send(f"No activities found for {date_str}.")
