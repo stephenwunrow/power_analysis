@@ -107,7 +107,7 @@ async def power_cmd(ctx, mode: str, *args):
             await ctx.send("Usage: `!power date <YYYY-MM-DD>`")
             return
 
-        date_str = args
+        date_str = args[0]
 
         try:
             target_date = datetime.date.fromisoformat(date_str)
