@@ -240,6 +240,7 @@ def get_activity_max_power(activity, interval_seconds):
 def list_files_by_date(folder, target_date):
     """Return list of file info dicts with matching date in their data."""
     matching_files = []
+    print(target_date)
     for filename in os.listdir(folder):
         if not filename.endswith('.json'):
             continue
@@ -249,7 +250,7 @@ def list_files_by_date(folder, target_date):
                 data = json.load(f)
                 file_date = data.get('start_date', '')
                 # Parse just the date portion (YYYY-MM-DD)
-                date_only = file_date.split(" ")[0] if file_date else ''
+                date_only = file_date.split(" ")[0] if file_date or file_date.split("T")[0] else ''
                 if date_only == target_date:
                     matching_files.append({
                         'filename': filename,
