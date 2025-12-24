@@ -103,17 +103,16 @@ async def power_cmd(ctx, mode: str, *args):
             await ctx.send(chunk)
 
     elif mode == "date":
-        if len(args) != 2:
-            await ctx.send("Usage: `!power date <YYYY-MM-DD> <seconds>`")
+        if len(args) != 1:
+            await ctx.send("Usage: `!power date <YYYY-MM-DD>`")
             return
 
-        date_str, seconds = args
+        date_str = args
 
         try:
             target_date = datetime.date.fromisoformat(date_str)
-            seconds = int(seconds)
         except ValueError:
-            await ctx.send("Invalid date or seconds.")
+            await ctx.send("Invalid date.")
             return
 
         # Step 1: collect activities for the date
