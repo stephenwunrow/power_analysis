@@ -250,7 +250,7 @@ def list_files_by_date(folder, target_date):
                 data = json.load(f)
                 file_date = data.get('start_date', '')
                 # Parse just the date portion (YYYY-MM-DD)
-                date_only = file_date.split(" ")[0] if file_date or file_date.split("T")[0] else ''
+                date_only = file_date[:10] if file_date else ""
                 if date_only == target_date:
                     matching_files.append({
                         'filename': filename,
